@@ -21,7 +21,7 @@ jobs:
       - name: Yarn intall
         run: yarn install
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Try linting
         run: yarn lint:fix
