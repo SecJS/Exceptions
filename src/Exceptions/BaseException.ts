@@ -1,4 +1,4 @@
-import { IResponseBuilder, ResponseBuilder } from '@SecJS/Responses'
+import { IResponseBuilder, ResponseBuilder } from '@secjs/responses'
 
 export abstract class BaseException extends Error {
   public isMakeBaseException = true
