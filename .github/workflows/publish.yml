@@ -1,5 +1,5 @@
 
-name: Publish Package
+name: Exceptions Publish
 
 on:
   push:

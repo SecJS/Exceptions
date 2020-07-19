@@ -1,6 +1,6 @@
 on: [pull_request]
 
-name: Check TSLint
+name: Exceptions Check Lint
 
 jobs:
   build:
@@ -13,10 +13,10 @@ jobs:
       - name: Setup NodeJs
         uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
+          node-version: '13.x'
           registry-url: 'https://npm.pkg.github.com'
           always-auth: false
-          scope: dedsec
+          scope: secjs
 
       - name: Yarn intall
         run: yarn install
