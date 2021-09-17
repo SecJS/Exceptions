@@ -1,7 +1,7 @@
-import { BaseException } from "../BaseException";
+import { BaseException } from '../BaseException'
 
 export class UnauthorizedException extends BaseException {
-  constructor(content: string | object = 'Unauthorized Error', code = 401) {
-    super(UnauthorizedException.name, content, code);
+  constructor(content: string | any = 'Unauthorized Error', code = 401) {
+    super(UnauthorizedException.name, content, code)
   }
 }

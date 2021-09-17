@@ -37,6 +37,8 @@ class MyCustomException extends BaseException {
 throw new MyCustomException({ error: 'object', use: 'as you want!' })
 ```
 
+---
+
 ### SecJS Exceptions
 
 > Or if you prefer, you can use the already built in exception from this package

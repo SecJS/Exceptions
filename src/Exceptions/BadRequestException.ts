@@ -1,7 +1,7 @@
-import { BaseException } from "../BaseException";
+import { BaseException } from '../BaseException'
 
 export class BadRequestException extends BaseException {
-  constructor(content: string | object = 'Bad Request Error', code = 400) {
-    super(BadRequestException.name, content, code);
+  constructor(content: string | any = 'Bad Request Error', code = 400) {
+    super(BadRequestException.name, content, code)
   }
 }

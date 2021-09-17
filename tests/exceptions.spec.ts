@@ -1,6 +1,6 @@
-import { ForbiddenException } from "../src/Exceptions/ForbiddenException";
-import { BadRequestException } from "../src/Exceptions/BadRequestException";
-import { BaseException } from "../src/BaseException";
+import { ForbiddenException } from '../src/Exceptions/ForbiddenException'
+import { BadRequestException } from '../src/Exceptions/BadRequestException'
+import { BaseException } from '../src/BaseException'
 
 describe('\n Exceptions', () => {
   it('should be able to create BadRequestException', async () => {
@@ -14,7 +14,7 @@ describe('\n Exceptions', () => {
       name: 'BadRequestException',
       status: 400,
       content: 'Bad Request Error',
-      isSecJsException: true
+      isSecJsException: true,
     })
   })
 
@@ -29,28 +29,38 @@ describe('\n Exceptions', () => {
       name: 'ForbiddenException',
       status: 403,
       content: 'Forbidden Error',
-      isSecJsException: true
+      isSecJsException: true,
     })
   })
 
   it('should be able to a new error class using BaseException', async () => {
     class MyCustomException extends BaseException {
-      constructor(content: string | object = 'My default error', status = 415) {
-        super(`My custom name, use ${MyCustomException.name} here`, content, status);
+      constructor(content: string | any = 'My default error', status = 415) {
+        super(
+          `My custom name, use ${MyCustomException.name} here`,
+          content,
+          status,
+        )
       }
     }
 
-    const exception = new MyCustomException({ error: 'object', use: 'as you want!' })
+    const exception = new MyCustomException({
+      error: 'object',
+      use: 'as you want!',
+    })
 
     expect(exception.status).toBe(415)
     expect(exception.isSecJsException).toBe(true)
     expect(exception.name).toBe('My custom name, use MyCustomException here')
-    expect(exception.content).toStrictEqual({ error: 'object', use: 'as you want!' })
+    expect(exception.content).toStrictEqual({
+      error: 'object',
+      use: 'as you want!',
+    })
     expect(exception.toJSON(false)).toStrictEqual({
       name: 'My custom name, use MyCustomException here',
       status: 415,
       content: { error: 'object', use: 'as you want!' },
-      isSecJsException: true
+      isSecJsException: true,
     })
   })
 })
