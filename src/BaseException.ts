@@ -1,10 +1,18 @@
+export interface ExceptionJSON {
+  name: string
+  status: number
+  content: string | any
+  isSecJsException: boolean
+  stack?: any
+}
+
 export abstract class BaseException extends Error {
   private readonly _name: string
   private readonly _status: number
-  private readonly _content: string | object
+  private readonly _content: string | any
 
-  protected constructor(name: string, content: string | object, status?: number) {
-    super(typeof  content === 'string' ? content : name)
+  protected constructor(name: string, content: string | any, status?: number) {
+    super(typeof content === 'string' ? content : name)
 
     this._name = name
     this._status = status
@@ -23,12 +31,11 @@ export abstract class BaseException extends Error {
     return this._status
   }
 
-  // @ts-ignore
-  get content(): string | object {
+  get content(): string | any {
     return this._content
   }
 
-  toJSON(stack = true): object {
+  toJSON(stack = true): ExceptionJSON {
     const response: any = {
       name: this._name,
       status: this._status,

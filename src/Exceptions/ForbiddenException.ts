@@ -1,7 +1,7 @@
-import { BaseException } from "../BaseException";
+import { BaseException } from '../BaseException'
 
 export class ForbiddenException extends BaseException {
-  constructor(content: string | object = 'Forbidden Error', code = 403) {
-    super(ForbiddenException.name, content, code);
+  constructor(content: string | any = 'Forbidden Error', code = 403) {
+    super(ForbiddenException.name, content, code)
   }
 }
