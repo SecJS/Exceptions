@@ -1,6 +1,7 @@
-import { BaseException } from './BaseException'
+import { BaseException } from "../BaseException";
 
 export class NotFoundException extends BaseException {
-  public httpStatus = 404
-  public name = 'NotFoundException'
+  constructor(content: string | object = 'Not Found Error', code = 404) {
+    super(NotFoundException.name, content, code);
+  }
 }

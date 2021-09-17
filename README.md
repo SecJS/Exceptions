@@ -1,6 +1,6 @@
-# Exceptions 📦
+# Exceptions 🛑
 
-> Very simple Exceptions for NodeJS Application
+> Very simple Exceptions for NodeJS Applications and other SecJS packages
 
 <p>
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/secjs/exceptions?style=for-the-badge&logo=appveyor">
@@ -10,38 +10,51 @@
   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen?style=for-the-badge&logo=appveyor">
 </p>
 
-The intention behind this repository is to always maintain a viable and simple Exceptions handler to use in any type of `NodeJS Framework`
+The intention behind this repository is to always maintain a viable and simple exception creator to use in any type of `NodeJS Framework` and
+inside all `SecJS` packages.
 
-<img src=".github/exceptions.jpg" width="200px" align="right" hspace="30px" vspace="100px">
+<img src=".github/exceptions.png" width="200px" align="right" hspace="30px" vspace="100px">
 
 ## Installation
 
-To use Exceptions in your project, first you need to install `@SecJS/Responses`
-
 ```bash
-yarn add @SecJS/Responses
-```
-
-Then you can install the Exceptions using;
-
-```bash
-yarn add @SecJS/Exceptions
+npm install @secjs/exceptions
 ```
 
 ## Usage
 
-> You can call the any of Exceptions classes to create a new error
+### BaseException 
+
+> Create your own custom exception extending BaseException methods
 
 ```js
-import {
-  InternalErrorException,
-  InvalidArgsExceptions,
-  NotFoundException,
-  UnauthorizedException
-} from '@SecJS/Exceptions'
-
-if (1+1 = 3) {
-  throw new InternalErrorException('1+1 is not 3!!', 'INTERNAL_ERROR')
+class MyCustomException extends BaseException {
+  constructor(content: string | object = 'My default error', status = 400) {
+    super(MyCustomException.name, content, status);
+  }
 }
 
+throw new MyCustomException({ error: 'object', use: 'as you want!' })
 ```
+
+### SecJS Exceptions
+
+> Or if you prefer, you can use the already built in exception from this package
+
+```js
+import { 
+  BadRequestException, 
+  ForbiddenException, 
+  InternalServerException, 
+  InvalidMethodException, 
+  NotFoundException,
+  NotImplementedException,
+  UnauthorizedException,
+  UnprocessableEntityException,
+  UnsupportedMediaException,
+} from '@secjs/exceptions'
+```
+
+---
+
+Made with 🖤 by [jlenon7](https://github.com/jlenon7) :wave:
